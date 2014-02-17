@@ -23,6 +23,7 @@ sochiChart <- function(){
     stacked = TRUE,
     margin = list(left = 100)
   )
+  n1$yAxis(tickFormat = "#! function(d){return d3.format('.0f')(d)} !#")
   return(n1)
 }
 
