@@ -32,3 +32,9 @@ saveChart <- function(){
   n1$save('output.html', cdn = T)
   return(invisible())
 }
+
+inlineChart <- function(){
+  n1 <- sochiChart()
+  n1$set(height = 700)
+  paste(capture.output(n1$show('inline')), collapse ='\n')
+}
