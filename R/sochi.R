@@ -21,7 +21,8 @@ sochiChart <- function(){
   n1$chart(
     color = c('#C98910', '#A8A8A8', '#965A38'),
     stacked = TRUE,
-    margin = list(left = 100)
+    margin = list(left = 100),
+    showControls = FALSE
   )
   n1$yAxis(tickFormat = "#! function(d){return d3.format('.0f')(d)} !#")
   return(n1)
@@ -36,6 +37,6 @@ saveChart <- function(){
 
 inlineChart <- function(){
   n1 <- sochiChart()
-  n1$set(height = 700)
+  n1$set(height = 650)
   paste(capture.output(n1$show('inline')), collapse ='\n')
 }
