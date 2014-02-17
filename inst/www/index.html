@@ -46,6 +46,9 @@
         <div class='col-md-3' ng-controller='SochiCtrl'>
           <select class='form form-control' ng-model='event' 
            ng-options='event for event in events'></select>
+          <br/>
+          <select class='form form-control' ng-model='year' 
+           ng-options='year for year in years'></select>
         </div>
        <div class='col-md-9'>
         <div id='sochi'></div>
@@ -60,16 +63,20 @@
     $scope.events = ['all', 'alpine-skiing', 'cross-country', 'freestyle-skiing', 'nordic-combined',   
          'ski-jumping', 'biathlon', 'short-track', 'snowboard', 'bobsleigh', 'figure-skating', 
          'luge', 'skeleton', 'speed-skating']
+    $scope.years = ["2014", "2010", "2006", "2002", "1996", "1992", "1988", "1984"]
     $scope.event = $scope.events[0]
+    $scope.year = $scope.years[0]    
     $scope.makeChart = function(){
-       var req = ocpu.rpc("inlineChart", {"event": $scope.event}, function(output){   
+       var req = ocpu.rpc("inlineChart", 
+        {"event": $scope.event, "year": $scope.year}, function(output){   
         $('#sochi').html(output)
        }).fail(function(text){
          alert("Error: " + req.responseText);
        });
     }
-    $scope.$watch('event', function(newEvent){
-      $scope.makeChart(newEvent)
+    $scope.$watchCollection('[event, year]', function(newValues){
+      console.log(newValues)
+      $scope.makeChart({event: newValues[0], year: newValues[1]})
     })
    }
   </script>
