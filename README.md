@@ -66,7 +66,7 @@ We have all the required functions in the R package to turn in into a web-app. T
 
 ```html
 <!doctype HTML>
-<meta charset = 'utf-8'>
+<meta charset='utf-8'>
 <html>
   <head>
     <title>Sochi Olympics App using OpenCPU</title>
@@ -75,14 +75,60 @@ We have all the required functions in the R package to turn in into a web-app. T
     <script src='nvd3/js/jquery-1.8.2.min.js' type='text/javascript'></script>
     <script src='nvd3/js/d3.v3.min.js' type='text/javascript'></script>
     <script src='nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
-    <script src='nvd3/js/fisheye.js' type='text/javascript'></script>
     <script src='opencpu/opencpu-0.4.js' type='text/javascript'></script>
     <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js'></script>
   </head>
   <body ng-app>
-  
+    ...
   </body>
 </html>
+```
+
+Now, we need to build an AngularJS controller, that would accept two inputs, `event` and `year` and call the `inlineChart` function to return the chart html. Here is a brief explanation of how this works. The controller function `SochiCtr` is doing three things:
+
+1. Sets the initial values of `events`, `event`, `years` and `year`.
+2. Defines a `makeChart` function that uses OpenCPU to call `inlineChart` and return the chart fragment.
+3. Watches for changes in `event` and `year` and calls `makeChart` to update the chart.
+
+```js
+function SochiCtrl($scope){
+  $scope.events = ['all', 'alpine-skiing', 'cross-country', 'freestyle-skiing', 
+    'nordic-combined',  'ski-jumping', 'biathlon', 'short-track', 'snowboard', 
+    'bobsleigh', 'figure-skating', 'luge', 'skeleton', 'speed-skating']
+  $scope.event = $scope.events[0]
+  $scope.years = ["2014", "2010", "2006", "2002", "1996", "1992", "1988", "1984"]
+  $scope.year = $scope.years[0]    
+  
+  $scope.makeChart = function(){
+    var req = ocpu.rpc("inlineChart",  {"event": $scope.event, "year": $scope.year}, 
+      function(output){   
+        $('#sochi').html(output)
+      }).fail(function(text){
+         alert("Error: " + req.responseText);
+      });
+    }
+  $scope.$watchCollection('[event, year]', function(newValues){
+    $scope.makeChart({event: newValues[0], year: newValues[1]})
+  })
+}
+```
+
+We now need to add the required HTML to display the controls and the chart. We use [Bootstrap](http://getbootstrap.com) for a nice HTML page out-of-the-box. The key is the two `<select>...</select>` boxes, which are dynamically populated by the controller. AngularJS uses the `$scope` variable to maintain two-way data binding, reducing the need for writting spaghetti update code.
+
+```html
+<div class='container'>
+  <div class='row' id='medals'>
+    <div class='col-md-3' ng-controller='SochiCtrl'>
+      <select class='form form-control' ng-model='event' 
+        ng-options='event for event in events'></select><br/>
+      <select class='form form-control' ng-model='year' 
+        ng-options='year for year in years'></select>
+    </div>
+    <div class='col-md-9'>
+     <div id='sochi'></div>
+    </div>
+  </div>
+</div>
 ```
 
 
