@@ -1,0 +1,565 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://nvd3.org/src/nv.d3.css'>
+    
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://timelyportfolio.github.io/rCharts_nvd3_tests/libraries/widgets/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='http://nvd3.org/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart1773b1199b4ee' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart1773b1199b4ee()
+    });
+    function drawchart1773b1199b4ee(){  
+      var opts = {
+ "dom": "chart1773b1199b4ee",
+"width":    800,
+"height":    400,
+"process_data": true,
+"x": "Country",
+"y": "Count",
+"type": "multiBarHorizontalChart",
+"group": "Medal",
+"id": "chart1773b1199b4ee" 
+},
+        data = [
+ {
+ "Country": "Germany",
+"Rank": "1",
+"Medal": "Gold",
+"Count":              7 
+},
+{
+ "Country": "Netherlands",
+"Rank": "2",
+"Medal": "Gold",
+"Count":              5 
+},
+{
+ "Country": "Norway",
+"Rank": "3",
+"Medal": "Gold",
+"Count":              5 
+},
+{
+ "Country": "Switzerland",
+"Rank": "4",
+"Medal": "Gold",
+"Count":              5 
+},
+{
+ "Country": "Russian Fed.",
+"Rank": "5",
+"Medal": "Gold",
+"Count":              4 
+},
+{
+ "Country": "Canada",
+"Rank": "6",
+"Medal": "Gold",
+"Count":              4 
+},
+{
+ "Country": "United States",
+"Rank": "7",
+"Medal": "Gold",
+"Count":              4 
+},
+{
+ "Country": "Belarus",
+"Rank": "8",
+"Medal": "Gold",
+"Count":              4 
+},
+{
+ "Country": "Poland",
+"Rank": "9",
+"Medal": "Gold",
+"Count":              4 
+},
+{
+ "Country": "China",
+"Rank": "10",
+"Medal": "Gold",
+"Count":              3 
+},
+{
+ "Country": "Sweden",
+"Rank": "11",
+"Medal": "Gold",
+"Count":              2 
+},
+{
+ "Country": "Austria",
+"Rank": "12",
+"Medal": "Gold",
+"Count":              2 
+},
+{
+ "Country": "France",
+"Rank": "13",
+"Medal": "Gold",
+"Count":              2 
+},
+{
+ "Country": "Czech Republic",
+"Rank": "=14",
+"Medal": "Gold",
+"Count":              1 
+},
+{
+ "Country": "Japan",
+"Rank": "=14",
+"Medal": "Gold",
+"Count":              1 
+},
+{
+ "Country": "Slovenia",
+"Rank": "16",
+"Medal": "Gold",
+"Count":              1 
+},
+{
+ "Country": "Korea",
+"Rank": "17",
+"Medal": "Gold",
+"Count":              1 
+},
+{
+ "Country": "Great Britain",
+"Rank": "18",
+"Medal": "Gold",
+"Count":              1 
+},
+{
+ "Country": "Slovakia",
+"Rank": "19",
+"Medal": "Gold",
+"Count":              1 
+},
+{
+ "Country": "Italy",
+"Rank": "20",
+"Medal": "Gold",
+"Count":              0 
+},
+{
+ "Country": "Finland",
+"Rank": "21",
+"Medal": "Gold",
+"Count":              0 
+},
+{
+ "Country": "Latvia",
+"Rank": "22",
+"Medal": "Gold",
+"Count":              0 
+},
+{
+ "Country": "Australia",
+"Rank": "23",
+"Medal": "Gold",
+"Count":              0 
+},
+{
+ "Country": "Croatia",
+"Rank": "24",
+"Medal": "Gold",
+"Count":              0 
+},
+{
+ "Country": "Kazakhstan",
+"Rank": "=25",
+"Medal": "Gold",
+"Count":              0 
+},
+{
+ "Country": "Ukraine",
+"Rank": "=25",
+"Medal": "Gold",
+"Count":              0 
+},
+{
+ "Country": "Germany",
+"Rank": "1",
+"Medal": "Silver",
+"Count":              3 
+},
+{
+ "Country": "Netherlands",
+"Rank": "2",
+"Medal": "Silver",
+"Count":              5 
+},
+{
+ "Country": "Norway",
+"Rank": "3",
+"Medal": "Silver",
+"Count":              3 
+},
+{
+ "Country": "Switzerland",
+"Rank": "4",
+"Medal": "Silver",
+"Count":              1 
+},
+{
+ "Country": "Russian Fed.",
+"Rank": "5",
+"Medal": "Silver",
+"Count":              7 
+},
+{
+ "Country": "Canada",
+"Rank": "6",
+"Medal": "Silver",
+"Count":              6 
+},
+{
+ "Country": "United States",
+"Rank": "7",
+"Medal": "Silver",
+"Count":              4 
+},
+{
+ "Country": "Belarus",
+"Rank": "8",
+"Medal": "Silver",
+"Count":              0 
+},
+{
+ "Country": "Poland",
+"Rank": "9",
+"Medal": "Silver",
+"Count":              0 
+},
+{
+ "Country": "China",
+"Rank": "10",
+"Medal": "Silver",
+"Count":              2 
+},
+{
+ "Country": "Sweden",
+"Rank": "11",
+"Medal": "Silver",
+"Count":              5 
+},
+{
+ "Country": "Austria",
+"Rank": "12",
+"Medal": "Silver",
+"Count":              4 
+},
+{
+ "Country": "France",
+"Rank": "13",
+"Medal": "Silver",
+"Count":              0 
+},
+{
+ "Country": "Czech Republic",
+"Rank": "=14",
+"Medal": "Silver",
+"Count":              3 
+},
+{
+ "Country": "Japan",
+"Rank": "=14",
+"Medal": "Silver",
+"Count":              3 
+},
+{
+ "Country": "Slovenia",
+"Rank": "16",
+"Medal": "Silver",
+"Count":              1 
+},
+{
+ "Country": "Korea",
+"Rank": "17",
+"Medal": "Silver",
+"Count":              1 
+},
+{
+ "Country": "Great Britain",
+"Rank": "18",
+"Medal": "Silver",
+"Count":              0 
+},
+{
+ "Country": "Slovakia",
+"Rank": "19",
+"Medal": "Silver",
+"Count":              0 
+},
+{
+ "Country": "Italy",
+"Rank": "20",
+"Medal": "Silver",
+"Count":              2 
+},
+{
+ "Country": "Finland",
+"Rank": "21",
+"Medal": "Silver",
+"Count":              2 
+},
+{
+ "Country": "Latvia",
+"Rank": "22",
+"Medal": "Silver",
+"Count":              1 
+},
+{
+ "Country": "Australia",
+"Rank": "23",
+"Medal": "Silver",
+"Count":              1 
+},
+{
+ "Country": "Croatia",
+"Rank": "24",
+"Medal": "Silver",
+"Count":              1 
+},
+{
+ "Country": "Kazakhstan",
+"Rank": "=25",
+"Medal": "Silver",
+"Count":              0 
+},
+{
+ "Country": "Ukraine",
+"Rank": "=25",
+"Medal": "Silver",
+"Count":              0 
+},
+{
+ "Country": "Germany",
+"Rank": "1",
+"Medal": "Bronze",
+"Count":              2 
+},
+{
+ "Country": "Netherlands",
+"Rank": "2",
+"Medal": "Bronze",
+"Count":              7 
+},
+{
+ "Country": "Norway",
+"Rank": "3",
+"Medal": "Bronze",
+"Count":              7 
+},
+{
+ "Country": "Switzerland",
+"Rank": "4",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Russian Fed.",
+"Rank": "5",
+"Medal": "Bronze",
+"Count":              5 
+},
+{
+ "Country": "Canada",
+"Rank": "6",
+"Medal": "Bronze",
+"Count":              4 
+},
+{
+ "Country": "United States",
+"Rank": "7",
+"Medal": "Bronze",
+"Count":              8 
+},
+{
+ "Country": "Belarus",
+"Rank": "8",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Poland",
+"Rank": "9",
+"Medal": "Bronze",
+"Count":              0 
+},
+{
+ "Country": "China",
+"Rank": "10",
+"Medal": "Bronze",
+"Count":              0 
+},
+{
+ "Country": "Sweden",
+"Rank": "11",
+"Medal": "Bronze",
+"Count":              2 
+},
+{
+ "Country": "Austria",
+"Rank": "12",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "France",
+"Rank": "13",
+"Medal": "Bronze",
+"Count":              4 
+},
+{
+ "Country": "Czech Republic",
+"Rank": "=14",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Japan",
+"Rank": "=14",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Slovenia",
+"Rank": "16",
+"Medal": "Bronze",
+"Count":              3 
+},
+{
+ "Country": "Korea",
+"Rank": "17",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Great Britain",
+"Rank": "18",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Slovakia",
+"Rank": "19",
+"Medal": "Bronze",
+"Count":              0 
+},
+{
+ "Country": "Italy",
+"Rank": "20",
+"Medal": "Bronze",
+"Count":              3 
+},
+{
+ "Country": "Finland",
+"Rank": "21",
+"Medal": "Bronze",
+"Count":              0 
+},
+{
+ "Country": "Latvia",
+"Rank": "22",
+"Medal": "Bronze",
+"Count":              2 
+},
+{
+ "Country": "Australia",
+"Rank": "23",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Croatia",
+"Rank": "24",
+"Medal": "Bronze",
+"Count":              0 
+},
+{
+ "Country": "Kazakhstan",
+"Rank": "=25",
+"Medal": "Bronze",
+"Count":              1 
+},
+{
+ "Country": "Ukraine",
+"Rank": "=25",
+"Medal": "Bronze",
+"Count":              1 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .color([ "#C98910", "#A8A8A8", "#965A38" ])
+  .stacked(true)
+          
+        
+
+        
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>

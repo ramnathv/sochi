@@ -1,0 +1,15 @@
+Package: sochi
+Type: Package
+Title: OpenCPU App Displaying Sochi Medal Counts
+Version: 1.0
+Date: 2014-02-14
+Author: Ramnath Vaidyanathan
+Maintainer: Ramnath Vaidyanathan <ramnath.vaidya@gmail.com>
+Description: OpenCPU App Displaying Sochi Medal Counts
+License: MIT
+Imports:
+  XML,
+  reshape2,
+  rCharts
+Collate:
+  sochi.R
