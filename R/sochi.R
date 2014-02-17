@@ -22,7 +22,10 @@ sochiChart <- function(){
     color = c('#C98910', '#A8A8A8', '#965A38'),
     stacked = TRUE,
     margin = list(left = 100),
-    showControls = FALSE
+    showControls = FALSE,
+    tooltip = "#! function(key, x, y, e, graph) {
+        return '<p><b>' + key + '</b>: ' +  y + '</p>'
+    } !#"
   )
   n1$yAxis(tickFormat = "#! function(d){return d3.format('.0f')(d)} !#")
   return(n1)

@@ -668,4 +668,14 @@ svg .title {
   */
 }
 
+.nvtooltip {
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+
+
 
