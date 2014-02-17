@@ -12,6 +12,7 @@
     <script src='nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
     <script src='nvd3/js/fisheye.js' type='text/javascript'></script>
     <script src='opencpu/opencpu-0.4.js' type='text/javascript'></script>
+    <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js'></script>
     
     <style>
     .rChart {
@@ -24,30 +25,52 @@
     .container{
       margin-top: 40px;
     }
+    #medals {
+      margin-top: 20px;
+    }
     </style>
     
   </head>
-  <body>
+  <body ng-app>
     
    <div class='container'>
      <div class='row'>
-       <div class='col-md-10 col-md-offset'>
-        <h2>Sochi Olympics Medal Tally</h2>
-        <a href='http://rcharts.io' class="label label-primary">rCharts<a>
-        <a href='http://opencpu.org' class="label label-success">OpenCPU</a>
-        <a href='http://nvd3.org' class="label label-info">NVD3</a>
+       <div class='col-md-12'>
+         <h2>Sochi Olympics Medal Tally</h2>
+         <a href='http://rcharts.io' class="label label-primary">rCharts<a>
+         <a href='http://opencpu.org' class="label label-success">OpenCPU</a>
+         <a href='http://nvd3.org' class="label label-info">NVD3</a>
+       </div>
+      </div>
+       <div class='row' id='medals'>
+        <div class='col-md-3' ng-controller='SochiCtrl'>
+          <select class='form form-control' ng-model='event' 
+           ng-options='event for event in events'></select>
+        </div>
+       <div class='col-md-9'>
         <div id='sochi'></div>
        </div>
-     </div>
+      </div>
    </div>
 
     
   </body>
   <script>
-  var req = ocpu.rpc("inlineChart", {}, function(output){   
-    $('#sochi').append(output)
-  }).fail(function(text){
-    alert("Error: " + req.responseText);
-  });
+  function SochiCtrl($scope){
+    $scope.events = ['all', 'alpine-skiing', 'cross-country', 'freestyle-skiing', 'nordic-combined',   
+         'ski-jumping', 'biathlon', 'short-track', 'snowboard', 'bobsleigh', 'figure-skating', 
+         'luge', 'skeleton', 'speed-skating']
+    $scope.event = $scope.events[0]
+    $scope.makeChart = function(){
+       var req = ocpu.rpc("inlineChart", {"event": $scope.event}, function(output){   
+        $('#sochi').html(output)
+       }).fail(function(text){
+         alert("Error: " + req.responseText);
+       });
+    }
+    $scope.$watch('event', function(newEvent){
+      $scope.makeChart(newEvent)
+    })
+   }
   </script>
 </html>
