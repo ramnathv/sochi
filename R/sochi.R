@@ -1,3 +1,4 @@
+#' Get Medal Counts
 getMedalCounts = function(event = 'all', year = '2014'){
   options(stringsAsFactors = F)
   standings = do.call(readHTMLTable, makePayload(event, year))
