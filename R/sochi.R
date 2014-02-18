@@ -30,7 +30,7 @@ makePayload = function(event, year){
     } else {
       list(
         doc =  paste0('http://www.sochi2014.com/en/', event),
-         which = 2, skip = 1, colClasses = colClasses
+         which = 2, skip = NULL, colClasses = colClasses
       )
     }
   }
