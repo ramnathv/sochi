@@ -4,6 +4,18 @@ This is an [OpenCPU](http://opencpu.org) application that uses the [NVD3](http:/
 
 ![Imgur](http://i.imgur.com/SJJuwuG.png)
 
+### Quick Start
+
+The easiest way to run this webapp locally is to install the `sochi` package from `github`
+
+```S
+install.packages('XML', type = 'source')
+devtools::install_github('ramnathv/sochi')
+library(opencpu)
+opencpu$browse('/library/sochi/www')
+```
+
+
 ### Create R Package
 
 The basic workhorse of this application is the [getMedalCounts](https://github.com/ramnathv/sochi/blob/master/R/sochi.R#L1) function, which accepts the `event` name and the `year` and returns a data frame with the medal tallies, in the long format.
